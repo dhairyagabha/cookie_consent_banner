@@ -135,7 +135,7 @@ en:
 2. Hotwire/Turbo enabled in your application
 
 ## Contributing
-Contribution directions go here.
+Bug reports and pull requests are welcome on GitHub at [https://github.com/dhairyagabha/cookie_consent](https://github.com/dhairyagabha/cookie_consent). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the code of conduct.
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

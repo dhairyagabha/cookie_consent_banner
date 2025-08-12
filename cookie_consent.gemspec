@@ -5,24 +5,20 @@ Gem::Specification.new do |spec|
   spec.version     = CookieConsent::VERSION
   spec.authors     = [ "Dhairya Gabhawala" ]
   spec.email       = [ "gabhawaladhairya@gmail.com" ]
-  spec.homepage    = "TODO"
-  spec.summary     = "TODO: Summary of CookieConsent."
-  spec.description = "TODO: Description of CookieConsent."
+  spec.homepage    = "https://www.dhairyagabhawala.com/projects/ruby-gem-cookie-consent"
+  spec.summary     = "A Rails engine gem that displays a Turbo Frame–powered cookie consent modal with configurable locales and consent levels, storing user preferences server-side."
+  spec.description = "This gem provides a Rails engine to easily integrate a cookie consent modal into your Rails application. It leverages Turbo Frames to render the modal dynamically and handle consent submissions without full page reloads."
   spec.license     = "MIT"
 
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the "allowed_push_host"
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-  spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
+  spec.metadata["source_code_uri"] = "https://github.com/dhairyagabha/cookie_consent"
+  spec.metadata["changelog_uri"] = "https://github.com/dhairyagabha/cookie_consent/blob/main/CHANGELOG.md"
 
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
     Dir["{app,config,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
   end
 
-  spec.require_paths = ["lib"]
+  spec.require_paths = [ "lib" ]
 
   spec.add_dependency "rails", ">= 8.0.2"
 end
