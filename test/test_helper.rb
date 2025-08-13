@@ -13,3 +13,7 @@ if ActiveSupport::TestCase.respond_to?(:fixture_paths=)
   ActiveSupport::TestCase.file_fixture_path = File.expand_path("fixtures", __dir__) + "/files"
   ActiveSupport::TestCase.fixtures :all
 end
+
+unless Mime::Type.lookup_by_extension(:turbo_stream)
+  Mime::Type.register "text/vnd.turbo-stream.html", :turbo_stream
+end

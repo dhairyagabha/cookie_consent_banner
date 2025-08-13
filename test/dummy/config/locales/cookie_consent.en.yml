@@ -1,0 +1,35 @@
+# config/locales/cookie_consent_modal.en.yml
+
+en:
+  cookie_consent_modal:
+    title: "We use cookies"
+    description: "We use cookies to improve your experience on our website. You can choose which types of cookies to allow."
+    categories:
+      essential:
+        name: "Essential"
+        description: "Required for the site to work."
+        cookies:
+          - name: "_session_id"
+            description: "Maintains your session while you browse the site."
+          - name: "csrf_token"
+            description: "Helps prevent cross-site request forgery attacks."
+      analytics:
+        name: "Analytics"
+        description: "Help us understand how you use the site."
+        cookies:
+          - name: "_session_id"
+            description: "Maintains your session while you browse the site."
+          - name: "csrf_token"
+            description: "Helps prevent cross-site request forgery attacks."
+      marketing:
+        name: "Marketing"
+        description: "Personalize ads and content."
+        cookies:
+          - name: "_session_id"
+            description: "Maintains your session while you browse the site."
+          - name: "csrf_token"
+            description: "Helps prevent cross-site request forgery attacks."
+    buttons:
+      necessary: "Necessary Only"
+      accept_all: "Accept All"
+      save_preferences: "Save Preferences"

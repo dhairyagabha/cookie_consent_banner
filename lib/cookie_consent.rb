@@ -3,6 +3,8 @@ require "cookie_consent/engine"
 require "cookie_consent/helper"
 require "cookie_consent/railtie"
 require "cookie_consent/configuration"
+require "turbo-rails"
+
 
 module CookieConsent
   class << self
