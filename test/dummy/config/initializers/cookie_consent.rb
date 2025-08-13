@@ -1,3 +1,3 @@
 CookieConsent.configure do |config|
-  config.cookie_buckets = [:necessary, :analytics, :marketing]
+  config.cookie_buckets = [ :necessary, :analytics, :marketing ]
 end

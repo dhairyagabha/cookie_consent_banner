@@ -42,7 +42,7 @@ module CookieConsent
 
     # Test POST /create for customized selection
     test "should set customized cookies" do
-      preferences = ["0", "1"]
+      preferences = [ "0", "1" ]
 
       post cookie_consent.consents_path,
            params: { button: "customized", cookie_preferences: preferences },
