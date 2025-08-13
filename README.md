@@ -13,7 +13,7 @@ It uses **Turbo Frames** for smooth rendering and updating of the consent popup 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "cookie_consent"
+gem "cookie_consent_banner"
 ```
 
 And then execute:
@@ -23,21 +23,21 @@ $ bundle install
 
 Or install it yourself as:
 ```bash
-$ gem install cookie_consent
+$ gem install cookie_consent_banner
 ```
 
 ## Setup
 Run the install generator:
 ```bash
-rails generate cookie_consent:install
+rails generate cookie_consent_banner:install
 ```
 
 This will create:
-1. **Initializer:** `config/initializers/cookie_consent.rb`
+1. **Initializer:** `config/initializers/cookie_consent_banner.rb`
    Configure cookie consent options, such as expiration time and categories.
-2. **Locale file:** `config/locales/cookie_consent.en.yml`
+2. **Locale file:** `config/locales/cookie_consent_banner.en.yml`
    Customize text, labels, and messages for the consent modal.
-3. **View partial:** `app/views/cookie_consent/_modal.html.erb`
+3. **View partial:** `app/views/cookie_consent_banner/_modal.html.erb`
    The modal that appears to the user requesting their consent.
 
 ## Usage
@@ -48,23 +48,23 @@ class ApplicationController < ActionController::Base
   include CookieConsent::Consentable
 end
 ```
-This makes the instance variable `@show_cookie_consent` available in your views, which indicates whether the consent modal should be displayed.
+This makes the instance variable `@show_cookie_consent_banner` available in your views, which indicates whether the consent modal should be displayed.
 
 ### 2. Display the modal
 Add the modal partial to your application layout (e.g., `app/views/layouts/application.html.erb`):
 
 ```erb
-<%= render "cookie_consent/modal" if @show_cookie_consent %>
+<%= render "cookie_consent_banner/modal" if @show_cookie_consent_banner %>
 ```
 
 Add the turbo frame to your application layout (e.g., `app/views/layouts/application.html.erb`):
 
 ```erb
-<%= turbo_frame_tag :cookie_consent_modal_container %>
+<%= turbo_frame_tag :cookie_consent_banner_modal_container %>
 ```
 
 ### 3. Understanding the YAML File:
-All items related to the Cookie Consent Modal are nested in the `cookie_consent_modal` object. YAML file will provide support for translating the content into multiple languages.
+All items related to the Cookie Consent Modal are nested in the `cookie_consent_banner_modal` object. YAML file will provide support for translating the content into multiple languages.
 
 Add the cookie categories in the `categories` object. Each category requires the following attributes:
 1. Name: Readable name of the cookie category. This is used to present it in the modal.
@@ -79,7 +79,7 @@ Add the cookie categories in the `categories` object. Each category requires the
 
 ```YAML
 en:
-  cookie_consent_modal:
+  cookie_consent_banner_modal:
     title: "We use cookies"
     description: "We use cookies to improve your experience on our website. You can choose which types of cookies to allow."
     categories:
@@ -114,14 +114,14 @@ en:
 ```
 
 ### 4. How it works
-* On page load, if the user's cookie consent has not been set, `@show_cookie_consent` will be `true`, triggering the modal.
+* On page load, if the user's cookie consent has not been set, `@show_cookie_consent_banner` will be `true`, triggering the modal.
 * The modal is rendered inside a **Turbo Frame** from smooth updates.
 * When the user accepts or changes preferences, the Turbo Frame sends the update to the controller action, which sets the cookie and hides the modal.
 
 ### Customization
 * **Style:** Update `_modal.html.erb` to match your site's design and configure the default consent, and how obtrusive the experience needs to be.
-* **Translations:** Edit `config/locales/cookie_consent.en.yml` for copy changes.
-* **Behavior:** Adjust `config/initializer/cookie_consent.rb` to modify consent handling.
+* **Translations:** Edit `config/locales/cookie_consent_banner.en.yml` for copy changes.
+* **Behavior:** Adjust `config/initializer/cookie_consent_banner.rb` to modify consent handling.
 
 ### Example Flow
 1. User visits any page.
@@ -135,7 +135,7 @@ en:
 2. Hotwire/Turbo enabled in your application
 
 ## Contributing
-Bug reports and pull requests are welcome on GitHub at [https://github.com/dhairyagabha/cookie_consent](https://github.com/dhairyagabha/cookie_consent). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the code of conduct.
+Bug reports and pull requests are welcome on GitHub at [https://github.com/dhairyagabha/cookie_consent_banner](https://github.com/dhairyagabha/cookie_consent_banner). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the code of conduct.
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

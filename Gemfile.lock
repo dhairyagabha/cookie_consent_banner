@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cookie_consent (0.1.0)
+    cookie_consent_banner (0.1.0)
       rails (>= 7.0.0)
       turbo-rails
 
@@ -244,7 +244,7 @@ PLATFORMS
   x86_64-linux-gnu
 
 DEPENDENCIES
-  cookie_consent!
+  cookie_consent_banner!
   propshaft
   puma
   rubocop-rails-omakase

@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  mount CookieConsent::Engine => "/cookie_consent"
+  mount CookieConsentBanner::Engine => "/cookie_consent_banner"
 end

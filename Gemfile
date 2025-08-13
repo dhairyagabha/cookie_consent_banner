@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in cookie_consent.gemspec.
+# Specify your gem's dependencies in cookie_consent_banner.gemspec.
 gemspec
 
 gem "puma"
