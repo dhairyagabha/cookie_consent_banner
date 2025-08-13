@@ -1,5 +1,5 @@
-# Cookie Consent Rails Engine
-**Cookie Consent Rails Engine** is a plug-and-play solution to display, manage, and persist cookie consent preferences in your Rails application.
+# Cookie Consent Banner Rails Engine
+**Cookie Consent Banner Rails Engine** is a plug-and-play solution to display, manage, and persist cookie consent preferences in your Rails application.
 It uses **Turbo Frames** for smooth rendering and updating of the consent popup without full-page reloads.
 
 ## Features
@@ -35,26 +35,38 @@ rails generate cookie_consent_banner:install
 This will create:
 1. **Initializer:** `config/initializers/cookie_consent_banner.rb`
    Configure cookie consent options, such as expiration time and categories.
+   ```ruby
+    # Add symbols for the cookie categories to the below array
+    config.cookie_buckets = []
+    # Update the default cookie expiration below
+    config.cookie_expiration = 1.year
+   ```
 2. **Locale file:** `config/locales/cookie_consent_banner.en.yml`
    Customize text, labels, and messages for the consent modal.
 3. **View partial:** `app/views/cookie_consent_banner/_modal.html.erb`
    The modal that appears to the user requesting their consent.
 
 ## Usage
-### 1. Include the concern
+### 1. Mount the engine
+To enable the controller routes required to send the consents calls, add the following to the routes file:
+```ruby
+mount CookieConsentBanner::Engine => "/cookie-consent-banner"
+```
+
+### 2. Include the concern
 To ensure cookie consent is validated regardless of the page the user enters from, include the provided concern in you ApplicationController:
 ```ruby
 class ApplicationController < ActionController::Base
-  include CookieConsent::Consentable
+  include CookieConsentBanner::Consentable
 end
 ```
 This makes the instance variable `@show_cookie_consent_banner` available in your views, which indicates whether the consent modal should be displayed.
 
-### 2. Display the modal
+### 3. Display the modal
 Add the modal partial to your application layout (e.g., `app/views/layouts/application.html.erb`):
 
 ```erb
-<%= render "cookie_consent_banner/modal" if @show_cookie_consent_banner %>
+<%= render_cookie_consent_banner_modal if @show_cookie_consent_banner %>
 ```
 
 Add the turbo frame to your application layout (e.g., `app/views/layouts/application.html.erb`):
@@ -63,7 +75,7 @@ Add the turbo frame to your application layout (e.g., `app/views/layouts/applica
 <%= turbo_frame_tag :cookie_consent_banner_modal_container %>
 ```
 
-### 3. Understanding the YAML File:
+### 4. Understanding the YAML File:
 All items related to the Cookie Consent Modal are nested in the `cookie_consent_banner_modal` object. YAML file will provide support for translating the content into multiple languages.
 
 Add the cookie categories in the `categories` object. Each category requires the following attributes:
@@ -113,7 +125,7 @@ en:
       save_preferences: "Save Preferences"
 ```
 
-### 4. How it works
+### 5. How it works
 * On page load, if the user's cookie consent has not been set, `@show_cookie_consent_banner` will be `true`, triggering the modal.
 * The modal is rendered inside a **Turbo Frame** from smooth updates.
 * When the user accepts or changes preferences, the Turbo Frame sends the update to the controller action, which sets the cookie and hides the modal.

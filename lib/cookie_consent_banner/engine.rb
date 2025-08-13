@@ -10,6 +10,7 @@ module CookieConsentBanner
     initializer "cookie_consent_banner.helpers" do
       ActiveSupport.on_load(:action_controller_base) do
         helper Turbo::StreamsHelper
+        helper CookieConsentBanner::Helper
       end
     end
   end

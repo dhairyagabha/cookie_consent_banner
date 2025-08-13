@@ -14,7 +14,7 @@ module CookieConsentBanner
     # Test POST /create for required_only in turbo_stream format
     test "should set required_only cookies and respond with turbo_stream" do
       post cookie_consent_banner.consents_path,
-           params: { button: "required_only" },
+           params: { consent_type: "required_only" },
            headers: { "Accept" => Mime[:turbo_stream].to_s }
 
       assert_response :success
@@ -31,7 +31,7 @@ module CookieConsentBanner
       ]
 
       post cookie_consent_banner.consents_path,
-           params: { button: "accept_all" },
+           params: { consent_type: "accept_all" },
            headers: { "Accept" => Mime[:turbo_stream].to_s }
 
       assert_response :success
@@ -45,7 +45,7 @@ module CookieConsentBanner
       preferences = [ "0", "1" ]
 
       post cookie_consent_banner.consents_path,
-           params: { button: "customized", cookie_preferences: preferences },
+           params: { consent_type: "customized", cookie_preferences: preferences },
            headers: { "Accept" => Mime[:turbo_stream].to_s }
 
       assert_response :success

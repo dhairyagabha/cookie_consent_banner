@@ -18,7 +18,7 @@ module CookieConsentBanner
 
     private
     def set_consent_cookie
-      case params.require(:button)
+      case params.require(:consent_type)
       when "required_only"
         preferences = [ 0 ]
       when "accept_all"
@@ -29,7 +29,7 @@ module CookieConsentBanner
 
       cookies[:cookie_preferences] = {
         value: preferences.join(","),
-        expires: 1.year.from_now
+        expires: CookieConsentBanner.configuration.cookie_expiration.from_now
       }
     end
   end

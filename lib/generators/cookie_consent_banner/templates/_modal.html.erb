@@ -55,13 +55,13 @@
     <div class="px-4 py-4 sm:px-6 flex justify-between">
       <div>
         <!-- The submit button value of "customized" will take the cookie values based on the checkboxes. -->
-        <%= f.button t("cookie_consent_banner_modal.buttons.save_preferences"), type: :submit, value: :customized, class: "rounded-md px-2.5 py-1.5 text-sm font-semibold text-blue-600 hover:bg-gray-200 hover:outline-1 hover:outline-blue-600 cursor-pointer" %>
+        <%= f.button t("cookie_consent_banner_modal.buttons.save_preferences"), type: :submit, name: :consent_type, value: :customized, class: "rounded-md px-2.5 py-1.5 text-sm font-semibold text-blue-600 hover:bg-gray-200 hover:outline-1 hover:outline-blue-600 cursor-pointer" %>
       </div>
       <div>
         <!-- The submit button value of "required_only" will set the cookie value to be "0" which is usually the index for the required cookies. -->
-        <%= f.button t("cookie_consent_banner_modal.buttons.necessary"), type: :submit, value: :required_only, class: "rounded-md px-2.5 py-1.5 text-sm font-semibold text-blue-600 shadow-xs hover:bg-gray-300 outline-1 outline-blue-600 cursor-pointer" %>
+        <%= f.button t("cookie_consent_banner_modal.buttons.necessary"), type: :submit, name: :consent_type, value: :required_only, class: "rounded-md px-2.5 py-1.5 text-sm font-semibold text-blue-600 shadow-xs hover:bg-gray-300 outline-1 outline-blue-600 cursor-pointer" %>
         <!-- The submit button value of "accept_all" will set the cookie value to be an array of all indexes comma separated which will accept all buckets available. -->
-        <%= f.button t("cookie_consent_banner_modal.buttons.accept_all"), type: :submit, value: :accept_all, class: "rounded-md bg-blue-500 px-2.5 py-1.5 text-sm font-semibold text-white shadow-xs hover:bg-blue-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 cursor-pointer" %>
+        <%= f.button t("cookie_consent_banner_modal.buttons.accept_all"), type: :submit, name: :consent_type, value: :accept_all, class: "rounded-md bg-blue-500 px-2.5 py-1.5 text-sm font-semibold text-white shadow-xs hover:bg-blue-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 cursor-pointer" %>
       </div>
     </div>
   <% end %>
