@@ -1,3 +1,8 @@
+
+
+*NOTE: The engine is not compatible with Rails 8 at this time.*
+
+
 # Cookie Consent Banner Rails Engine
 **Cookie Consent Banner Rails Engine** is a plug-and-play solution to display, manage, and persist cookie consent preferences in your Rails application.
 It uses **Turbo Frames** for smooth rendering and updating of the consent popup without full-page reloads.
