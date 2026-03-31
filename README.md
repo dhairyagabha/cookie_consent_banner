@@ -1,4 +1,6 @@
-
+> [!WARNING]
+> **This gem is no longer maintained.**
+> This repository is archived and unmaintained. Development has moved to [dhairyagabha/rails_consent](https://github.com/dhairyagabha/rails_consent). Please use that gem going forward.
 
 *NOTE: The engine is not compatible with Rails 8 at this time.*
 
